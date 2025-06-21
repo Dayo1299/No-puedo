@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversión en TRX/USDT | CryptoX</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="logo">Crypto<span>X</span></div>
+        <div class="user-actions">
+            <a href="../pages/profile.html">Mi perfil</a>
+            <a href="../pages/settings.html">Configuración</a>
+            <a href="#">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Barra lateral -->
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="../pages/dashboard.html" class="active"><i>📊</i> Dashboard</a></li>
+                <li><a href="#"><i>💱</i> Mercado TRX</a></li>
+                <li><a href="#"><i>🔄</i> USDT_BEP20</a></li>
+                <li><a href="#"><i>🔀</i> USDT_TRC20</a></li>
+                <li><a href="#"><i>📈</i> Historial</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="welcome-banner">
+                <h1>Panel de Inversión en TRX/USDT</h1>
+                <p>Rendimiento 24h: <span class="positive">+2.4%</span></p>
+            </div>
+
+            <!-- Tarjetas de criptomonedas -->
+            <div class="crypto-cards">
+                <div class="crypto-card">
+                    <div class="crypto-header">
+                        <img src="../assets/images/trx.png" alt="TRX" width="30">
+                        <h3>TRON (TRX)</h3>
+                    </div>
+                    <p class="price">$0.125 <span class="positive">↑1.8%</span></p>
+                    <button class="btn-trade">Comprar/Vender</button>
+                </div>
+                
+                <div class="crypto-card">
+                    <div class="crypto-header">
+                        <img src="../assets/images/usdt.png" alt="USDT" width="30">
+                        <h3>USDT_BEP20</h3>
+                    </div>
+                    <p class="price">$1.00 <span class="neutral">0.0%</span></p>
+                    <button class="btn-trade">Swap</button>
+                </div>
+
+                <div class="crypto-card">
+                    <div class="crypto-header">
+                        <img src="../assets/images/usdt.png" alt="USDT" width="30">
+                        <h3>USDT_TRC20</h3>
+                    </div>
+                    <p class="price">$0.998 <span class="negative">↓0.2%</span></p>
+                    <button class="btn-trade">Retirar</button>
+                </div>
+            </div>
+
+            <!-- Gráfico de precios -->
+            <div class="chart-container">
+                <h2>Precio de TRX/USDT (24h)</h2>
+                <div id="trxChart" class="chart-placeholder"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
+/* Estilos generales */
+:root {
+    --primary: #1e3a8a;
+    --secondary: #3b82f6;
+    --positive: #10b981;
+    --negative: #ef4444;
+    --neutral: #64748b;
+}
+
+/* Estructura de la plataforma */
+.top-bar, .sidebar, .crypto-cards {
+    /* (Mantén los estilos del ejemplo anterior) */
+}
+
+/* Tarjetas de criptomonedas */
+.crypto-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.crypto-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.crypto-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.positive { color: var(--positive); }
+.negative { color: var(--negative); }
+.neutral { color: var(--neutral); }
+
+.btn-trade {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+// Simulación de datos de TRX/USDT
+const trxData = {
+    prices: [0.121, 0.122, 0.123, 0.125, 0.124],
+    dates: ["10:00", "12:00", "14:00", "16:00", "18:00"]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Aquí integrarías Chart.js para gráficos reales
+    console.log("Cargando datos de TRX...");
+    
+    // Ejemplo de función para comprar/retirar
+    document.querySelectorAll('.btn-trade').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const crypto = btn.closest('.crypto-card').querySelector('h3').textContent;
+            alert(`Operar con ${crypto}`);
+        });
+    });
+});
